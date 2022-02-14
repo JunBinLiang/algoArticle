@@ -1,6 +1,6 @@
 # 字符串神器 ： 滚动哈希 (Rolling Hash) 
 <br/>
-今天给大家介绍的是 **字串符(string)** 算法中特别好用的一种 : **滚动哈希 (Rolling Hash)** <br/>
+今天给大家介绍的是**字串符(string)** 算法中特别好用的一种 : **滚动哈希 (Rolling Hash)** <br/>
 我们将会聊到滚动哈希的基本概念，用法，以及会通过几道题的实例去巩固对该算法的了解<br/>
 **:bulb:注** ： 作者会试着用最简单移动的言语去使读者明白，不会包含太复杂的证明与理论。 练习题的题解会使用4种不同的语言进行解答 (Java, C++, Go, Python)<br/><br/>
 
@@ -53,7 +53,7 @@
 
 * 计算**h[]** 数组
 ```
-	//定义mod 和 base
+		//定义mod 和 base
         int mod = 1000000007;
         int base = 26;
         
@@ -83,7 +83,7 @@
 
 * 计算**hash(s[i : j])**
 ```
-    //s[l : r]
+	//s[l : r]
     //res = h[r] - h[l - 1] * base^ (r - (l - 1))
     public long gethash(long hash[],long pow[], int left,int right) {
         if(left == 0) {
@@ -166,6 +166,7 @@ class Solution {
         return cut == -1 ? "" : s.substring(0, cut + 1);
     }
     
+    //s[l : r]
     public long gethash(long hash[],long pow[], int left,int right) {
         if(left == 0) {
             return hash[right];
@@ -361,7 +362,7 @@ class Solution:
 ### Explanation :
 
 * 对于 **hash(s, p, m)** ，它跟我们以上定义的 **hash(s)** 函数非常相似 
-* 
+* 但是仔细发现这里的hash 跟我们以上定义的是相反的，所以当我们简历 h[] 数组的时候，只要按 string s 的倒叙来定义即可
 
 
 
