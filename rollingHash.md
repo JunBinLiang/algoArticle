@@ -166,7 +166,6 @@ class Solution {
         return cut == -1 ? "" : s.substring(0, cut + 1);
     }
     
-    //s[l : r]
     public long gethash(long hash[],long pow[], int left,int right) {
         if(left == 0) {
             return hash[right];
