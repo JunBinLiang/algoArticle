@@ -54,7 +54,7 @@
 	5. h[4] = 'b' * base ^ 4 + 'a' ^ base ^ 3 + 'c' * base ^ 2 + 'd' * base ^ 1 + 'e'
 3. 假设我们想计算 **hash(s[2 : 3] == "cd")**。 如果使用我们对于hash的定义，我们知道 **hash("cd") = 'c' * base ^ 1 + 'd'**
 4. 对于计算 **hash(s[l : r])**， 我们可以用公式 ： **hash[r] - hash[l - 1] * base ^ (r - l + 1)**
-5. **例子** ： **hash(s[2 : 3])** = hash[3] - hash[1] * base ^ 2 = ('b' * base ^ 3 + 'a' ^ base ^ 2 + 'c' * base ^ 1 + 'd') - (('b' * base ^ 1 + 'a') * base ^ 2) = **'c' * base ^ 1 + 'd'**
+5. **例子** ： **hash(s[2 : 3]) = hash[3] - hash[1] * base ^ 2** = ('b' * base ^ 3 + 'a' ^ base ^ 2 + 'c' * base ^ 1 + 'd') - (('b' * base ^ 1 + 'a') * base ^ 2) = **'c' * base ^ 1 + 'd'**
 <br/><br/>
 
 
