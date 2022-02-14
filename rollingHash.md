@@ -159,7 +159,7 @@ class Solution {
             h %= mod;
             hash[i] = h;
         }
-
+	//枚举所有前缀以及其对应的后缀
         int cut = -1;
         for(int i = 0; i < s.length() - 1; i++) {
             long h1 = gethash(hash, pow, 0, i);
@@ -170,8 +170,6 @@ class Solution {
         }
         return cut == -1 ? "" : s.substring(0, cut + 1);
     }
-    
-    //s[l : r]
     public long gethash(long hash[],long pow[], int left,int right) {
         if(left == 0) {
             return hash[right];
@@ -206,7 +204,7 @@ public:
             h %= mod;
             hash[i] = h;
         }
-        
+        //枚举所有前缀以及其对应的后缀
         int cut = -1;
         for(int i = 0; i < s.size() - 1; i++) {
             long long h1 = gethash(hash, pow, 0, i);
@@ -260,7 +258,7 @@ func longestPrefix(s string) string {
         h %= mod
         hash[i] = h
     }
-    
+    //枚举所有前缀以及其对应的后缀
     cut := -1
     for i := 0; i < n - 1; i++ {
         h1 := getHash(hash, pow, 0, i)
@@ -298,6 +296,7 @@ class Solution:
             h %= mod
             hash[i] = h
             
+	//枚举所有前缀以及其对应的后缀
         cut = -1
         for i in range(n - 1):
             h1 = self.get(hash, pow, 0, i)
