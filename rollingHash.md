@@ -9,6 +9,10 @@
 
  1. [Leetcode 1392. Longest Happy Prefix](https://leetcode.com/problems/longest-happy-prefix/)
  2. [Leetcode 2156. Find Substring With Given Hash Value](https://leetcode.com/problems/find-substring-with-given-hash-value/)
+
+更多的例题可参考Leetcode : 
+![lcrollinghash](https://user-images.githubusercontent.com/45537132/153812241-9e90c47a-9803-4da2-8b30-ca4ead78bb7f.png)
+
  <br/><br/> <br/><br/>
 
 
