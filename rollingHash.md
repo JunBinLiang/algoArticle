@@ -296,7 +296,7 @@ class Solution:
             h %= mod
             hash[i] = h
             
-	//枚举所有前缀以及其对应的后缀
+	#枚举所有前缀以及其对应的后缀
         cut = -1
         for i in range(n - 1):
             h1 = self.get(hash, pow, 0, i)
