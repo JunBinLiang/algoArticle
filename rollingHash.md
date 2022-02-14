@@ -12,7 +12,11 @@
 
 
 ## 什么是滚动哈希 (Rolling Hash) :
-简单一点就是把一个 **字串符(string)** 通过一个**hash function**给 **hash** 成一个值 <br/><br/>
+简单一点就是把一个 **字串符(string)** 通过一个**hash function**给 **hash** 成一个值。与普通的 **hash function** 的定义是一样的。但是 **滚动哈希 (Rolling Hash)** 会用特殊的方法进行 **hash**
+
+
+
+<br/><br/>
 
 
 ## 如何hash 一个string ?
