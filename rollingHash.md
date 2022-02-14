@@ -53,7 +53,7 @@
 
 * 计算**h[]** 数组
 ```
-		//定义mod 和 base
+	//定义mod 和 base
         int mod = 1000000007;
         int base = 26;
         
@@ -83,7 +83,7 @@
 
 * 计算**hash(s[i : j])**
 ```
-	//s[l : r]
+    //s[l : r]
     //res = h[r] - h[l - 1] * base^ (r - (l - 1))
     public long gethash(long hash[],long pow[], int left,int right) {
         if(left == 0) {
