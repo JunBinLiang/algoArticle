@@ -29,7 +29,7 @@
 2. 我们还会定义两个值 **base** 和 **mod**. **base** 可以选择任何数字。 **mod** 要选择一个尽量比较大并且是一个**prime number**，例题我们会用1000000007 作为我们的 **mod**
 3. **定义** :  **hash(s)** = s[0] * base ^ (n - 1) + s[1] * base ^ (n - 2) + s[2] * base ^ (n - 3) ... + s[n - 1] * base ^ (0) 
 4. 因为数字特别大的关系，我们需要取模 
-<br/>
+
 ![hashcal](https://user-images.githubusercontent.com/45537132/153812712-642db640-ba61-4bca-b6d9-19dbd101d2c2.png)
 <br/><br/>
 
