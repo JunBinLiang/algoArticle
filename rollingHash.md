@@ -13,6 +13,7 @@
 
 ## 什么是滚动哈希 (Rolling Hash) :
 简单一点就是把一个 **字串符(string)** 通过一个**hash function**给 **hash** 成一个值。与普通的 **hash function** 的定义是一样的。但是 **滚动哈希 (Rolling Hash)** 会用特殊的方法进行 **hash**
+![hash](https://user-images.githubusercontent.com/45537132/153796916-17e1dcc9-4c8e-4334-a368-f846aef97e39.png)
 
 
 
