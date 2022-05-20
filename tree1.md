@@ -157,7 +157,7 @@ func diameterOfBinaryTree(root *TreeNode) int {
 }
 
 ```
-
+<br/>
 ### Python
 
 ```python
@@ -192,7 +192,7 @@ class Solution:
 * **Space** : O(n)&#x20; 
   
   
- <br/><br/>
+ <br/><br/><br/>
  ##  Tree Coordinates
 
  -  道理非常简单，定义root 的 **(x, y) coordinates** 为 (0, 0) (其实任何数字都可以)
@@ -208,5 +208,181 @@ class Solution:
 
 ![3ce396eb99823a0098c290770de3009](https://user-images.githubusercontent.com/45537132/169601803-1c82bc16-3a21-43a7-918f-77fe49c8c9ee.png)
 
+### **Explanation:**
+* 这里我们就可以使用 **(x, y) coordinates**
+* 我们要找的 **Bottom Left**  点拥有最大的 y, 然后在所有相同y值的点中选出x值最小的那个即可
 
- 
+### Java
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    int X = -1, Y = -1, res = -1;
+    public int findBottomLeftValue(TreeNode root) {
+        dfs(root, 0, 0);
+        return res;
+    }
+    
+    public void dfs(TreeNode root, int x, int y) {
+        if(root == null) {
+            return;
+        }
+        dfs(root.left, x - 1, y + 1);
+        dfs(root.right, x + 1, y + 1);
+        if(y >= Y) {
+            if(y > Y) {
+                Y = y;
+                X = x;
+                res = root.val;
+            } else {
+                if(x < X) {
+                    X = x;
+                    res = root.val;
+                }
+            }
+        }
+    }
+}
+```
+<br/>
+
+### C++
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int X = -1, Y = -1, res = -1;
+    int findBottomLeftValue(TreeNode* root) {
+        dfs(root,0 , 0);
+        return res;
+    }
+    
+    void dfs(TreeNode* root, int x, int y) {
+        if(root == NULL) {
+            return;
+        }
+        dfs(root -> left, x - 1, y + 1);
+        dfs(root -> right, x + 1, y + 1);
+        if(y >= Y) {
+            if(y > Y) {
+                Y = y;
+                X = x;
+                res = root -> val;
+            } else {
+                if(x < X) {
+                    X = x;
+                    res = root -> val;
+                }
+            }
+        }
+    }
+};
+```
+<br/>
+### GO
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+
+var res, dep, l int = 0, 0, 0
+
+func dfs(root *TreeNode, x int, y int) {
+    if root == nil {
+        return
+    }
+    
+    if y > dep {
+        dep = y
+        l = x
+        res = root.Val
+    } else if y == dep {
+        if x < l {
+            l = x
+            res = root.Val
+        }
+    }
+    
+    dfs(root.Left, x - 1, y + 1)
+    dfs(root.Right, x + 1, y + 1)
+}
+
+func findBottomLeftValue(root *TreeNode) int {
+    res = -1
+    dep = -1
+    l = -1
+    
+    dfs(root, 0, 0)
+    return res
+}
+
+```
+<br/>
+### Python
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def __init__(self):
+        self.res = -1
+        self.X = -1
+        self.Y = -1
+    
+    def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
+        self.dfs(root, 0, 0)
+        return self.res
+        
+    def dfs(self, root, x, y):
+        if root == None:
+            return
+        self.dfs(root.left, x - 1, y + 1)
+        self.dfs(root.right, x + 1, y + 1)
+        if y >= self.Y:
+            if y > self.Y:
+                self.Y = y
+                self.X = x
+                self.res = root.val
+            else:
+                if x < self.X:
+                    self.X = x
+                    self.res = root.val
+  ```
+  
+ ### Complexity :
+
+* **Time** : O(n)&#x20;
+* **Space** : O(n)&#x20; 
