@@ -1,4 +1,5 @@
 
+
 # Tree  I
 学习 **Tree** 的几种经典用法  (讲章1）
 
@@ -187,3 +188,7 @@ class Solution:
   
  <br/><br/>
  ###  Tree Coordinates
+
+ -  道理非常简单，定义root 的 **(x, y) coordinates** 为 (0, 0) (其实任何数字都可以)
+ - dfs(root.left, x - 1, y + 1)   **(走左边的变化)**
+ - dfs(root.righ, x + 1, y + 1) **(走右边的变化)**
