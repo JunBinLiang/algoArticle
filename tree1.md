@@ -42,7 +42,7 @@ Tree Interval DP<br/>
 
  - 树的直径 ：设**dis(u, v)** 是 vertex u 到 vertex v 的最短距离。 **Tree Diameter = max(dis(u, v))**
  - 如何求树的直径？使用  [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) 作为模板
- - 假设路径经过 vertex u, 路径长度 = 1 + dis(u, v1) + dis(u, v2)。这里我们只需要找到最长的那条即可 
+ - 假设路径经过 vertex u, 路径长度 = 1 + dis(u, v1) + dis(u, v2)。这里我们只需要使 dis(u, v1), dis(u, v2) 最大化即可
  
 <br/>
  
@@ -186,6 +186,11 @@ class Solution:
         return max(l, r) + 1
   ```
   
+ ### Complexity :
+
+* **Time** : O(n)&#x20;
+* **Space** : O(n)&#x20; 
+  
   
  <br/><br/>
  ##  Tree Coordinates
@@ -197,4 +202,11 @@ class Solution:
 <br/>
 
  ###  Find Bottom Left Tree Value
+ 
+ ### Statements :
+> Given the root of a binary tree, return the leftmost value in the last row of the tree.
+
+![3ce396eb99823a0098c290770de3009](https://user-images.githubusercontent.com/45537132/169601803-1c82bc16-3a21-43a7-918f-77fe49c8c9ee.png)
+
+
  
