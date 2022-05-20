@@ -6,7 +6,7 @@
  - Tree Diameter
  - Tree Coordinate
  - Post Order Traversal
- - Tree Interval DP
+ - Tree Divide Conquer
 
   
 ### 文章中的例题链接 :  
@@ -84,6 +84,7 @@ class Solution {
 
 
 <br/>
+
 ### C++
 
 ```c++
@@ -201,7 +202,7 @@ class Solution:
 
 <br/>
 
- ###  Find Bottom Left Tree Value
+ ###  LC513 Find Bottom Left Tree Value
  
  ### Statements :
 > Given the root of a binary tree, return the leftmost value in the last row of the tree.
@@ -388,3 +389,8 @@ class Solution:
 
 * **Time** : O(n)&#x20;
 * **Space** : O(n)&#x20; 
+
+
+<br/>  <br/><br/>  <br/>
+  
+##  Tree Divide and Conquer
