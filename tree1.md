@@ -33,6 +33,7 @@ Post Order Traversal<br/>
 Tree Interval DP<br/>
 [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)<br/>
 [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees)
+[Binary Trees With Factors]([https://leetcode.com/problems/unique-binary-search-trees](https://leetcode.com/problems/binary-trees-with-factors/))
   <br/>
 
 
@@ -399,3 +400,75 @@ class Solution:
 ##  Tree Divide and Conquer
  -  类似区间DP
  -  基本原理 ： 假设我们要对数组 a[l : r] 建造树， 我们可以选择任何一个点i作为 l <= i <= r 作为root, 如果点 i 是root, 那么我们可以对 a[l : i - 1] 和 a[i + 1 : r] 建造左树和右树  
+ <br/>
+
+ ###  LC96. Unique Binary Search Trees
+ 
+  ### Statements :
+> Given an integer n, return the number of structurally unique BST's (binary search trees) which has exactly n nodes of unique values from 1 to n.
+
+
+![0649bfbe58ccc867e206e2cef46780b](https://user-images.githubusercontent.com/45537132/169620651-bd1eebd7-f817-41aa-ab8f-22c78191de06.png)
+
+### **Explanation:**
+* 假设我们现在有数组 1 - n 并且我们要用这些数字来建造 BST
+* 这些数组必须是排好序的，因为我们建造的是搜索树
+* 如果我们以 i 作为root，ways(i) = ways(l, i - 1) * ways(i + 1, r)
+* ways(l : r) = ways(l) + ways(l + 1) + ... ways(r) 
+
+
+### Java
+
+
+<br/>
+
+### C++
+
+
+<br/>
+
+
+### GO
+```go
+var dp [][]int
+
+func divide(l int, r int) int {
+    if l >= r {
+        return 1
+    }
+    if dp[l][r] != -1 {
+        return dp[l][r]
+    }
+    res := 0
+    for root := l; root <= r; root ++ {
+        lways := divide(l, root - 1)
+        rways := divide(root + 1, r)
+        res += lways * rways
+    }
+    dp[l][r] = res
+    return res
+}
+
+func numTrees(n int) int {
+    dp = make([][]int, 20)
+    for i := 0; i < 20; i++ {
+        dp[i] = make([]int, 20)
+        for j := 0; j < 20; j++ {
+            dp[i][j] = -1
+        }
+    }
+    return divide(1, n)
+}
+```
+<br/>
+
+
+### Python
+
+
+  
+ ### Complexity :
+
+* **Time** : O(n ^ 3)&#x20;
+* **Space** : O(n ^ 3)&#x20; 
+
