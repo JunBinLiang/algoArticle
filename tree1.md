@@ -38,11 +38,12 @@ Tree Interval DP<br/>
 
   <br/>  <br/><br/>  <br/>
   
-###  Tree Diameter
+##  Tree Diameter
 
  - 树的直径 ：设**dis(u, v)** 是 vertex u 到 vertex v 的最短距离。 **Tree Diameter = max(dis(u, v))**
- - 如何求树的直径？使用  [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) 作为例子
-
+ - 如何求树的直径？使用  [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) 作为模板
+ - 假设路径经过 vertex u, 路径长度 = 1 + dis(u, v1) + dis(u, v2)。这里我们只需要找到最长的那条即可 
+ 
 <br/>
  
 ### Java
@@ -187,8 +188,12 @@ class Solution:
   
   
  <br/><br/>
- ###  Tree Coordinates
+ ##  Tree Coordinates
 
  -  道理非常简单，定义root 的 **(x, y) coordinates** 为 (0, 0) (其实任何数字都可以)
  - dfs(root.left, x - 1, y + 1)   **(走左边的变化)**
  - dfs(root.righ, x + 1, y + 1) **(走右边的变化)**
+
+<br/>
+ ###  Find Bottom Left Tree Value
+ 
