@@ -520,7 +520,20 @@ func numTrees(n int) int {
 
 
 ### Python
-
+```python
+class Solution:
+    def numTrees(self, n: int) -> int:
+        return dfs(1, n)
+    
+@lru_cache
+def dfs(l, r):
+    if l >=r :
+        return 1
+    res = 0
+    for i in range(l, r + 1, 1):
+        res += dfs(l, i - 1) * dfs(i + 1, r)
+    return res
+```
 
   
  ### Complexity :
