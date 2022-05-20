@@ -205,6 +205,7 @@ class Solution:
  
  ### Statements :
 > Given the root of a binary tree, return the leftmost value in the last row of the tree.
+
 ![3ce396eb99823a0098c290770de3009](https://user-images.githubusercontent.com/45537132/169601803-1c82bc16-3a21-43a7-918f-77fe49c8c9ee.png)
 
 
