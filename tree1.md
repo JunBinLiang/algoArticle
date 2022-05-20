@@ -398,4 +398,4 @@ class Solution:
   
 ##  Tree Divide and Conquer
  -  类似区间DP
- -  
+ -  基本原理 ： 假设我们要对数组 a[l : r] 建造树， 我们可以选择任何一个点i作为 l <= i <= r 作为root, 如果点 i 是root, 那么我们可以对 a[l : i - 1] 和 a[i + 1 : r] 建造左树和右树  
