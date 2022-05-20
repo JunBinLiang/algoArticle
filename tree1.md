@@ -418,11 +418,67 @@ class Solution:
 
 
 ### Java
-
+```java
+class Solution {
+    int dp[][] = new int[20][20];
+    public int numTrees(int n) {
+        for(int arr[] : dp) {
+            Arrays.fill(arr, -1);
+        }
+        return divide(1, n);
+    }
+    
+    public int divide(int l, int r) {
+        if(l >= r) {
+            return 1;
+        }
+        if(dp[l][r] != -1) {
+            return dp[l][r];
+        }
+        
+        int res = 0;
+        for(int root = l; root <= r; root++) {
+            int lways = divide(l, root - 1);
+            int rways = divide(root + 1, r);
+            res += lways * rways;
+        }
+        return dp[l][r] = res;
+    }
+}
+```
 
 <br/>
 
+
 ### C++
+
+```c++
+class Solution {
+public:
+    int dp[20][20];
+    int numTrees(int n) {
+        memset(dp, -1, sizeof(dp));
+        return divide(1, n);
+    }
+    
+    int divide(int l, int r) {
+        if(l >= r) {
+            return 1;
+        }
+        if(dp[l][r] != -1) {
+            return dp[l][r];
+        }
+        int res = 0;
+        for(int root = l; root <= r; root++) {
+            int lways = divide(l, root - 1);
+            int rways = divide(root + 1, r);
+            res += lways * rways;
+        }
+        return dp[l][r] = res;
+    }
+};
+```
+
 
 
 <br/>
