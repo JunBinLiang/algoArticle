@@ -159,6 +159,7 @@ func diameterOfBinaryTree(root *TreeNode) int {
 
 ```
 <br/>
+
 ### Python
 
 ```python
