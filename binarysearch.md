@@ -50,7 +50,7 @@ call isBadVersion(5) -> ture
 
 
 
-### Java (Credit to 66brother)
+### Java 
 
 ```java
 /* The isBadVersion API is defined in the parent class VersionControl.
@@ -74,7 +74,7 @@ public class Solution extends VersionControl {
 }
 ```
 
-### C++ (Credit to 66brother)
+### C++ 
 
 ```cpp
 // The API isBadVersion is defined for you.
@@ -99,7 +99,7 @@ public:
 };
 ```
 
-### Python (Credit to liketheflower)
+### Python 
 
 ```python
 # The isBadVersion API is already defined for you.
@@ -123,7 +123,7 @@ class Solution:
         return l
 ```
 
-### Go (Credit to 66brother)
+### Go 
 
 ```go
 /** 
@@ -155,4 +155,4 @@ func firstBadVersion(n int) int {
 * **Time** : O (log(n)) 
 * **Space** : O(1) 
 
-
+<br/><br/><br/>
