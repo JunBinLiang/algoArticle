@@ -10,6 +10,7 @@
  4. [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/) <br/>
  5. [Kth Smallest Number in Multiplication Table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/) <br/>
  6. [Maximum White Tiles Covered by a Carpet](https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/) <br/>
+ 7. [Maximum Distance Between a Pair of Values](https://leetcode.com/problems/maximum-distance-between-a-pair-of-values/) <br/>
 <br/><br/><br/>
 
 
