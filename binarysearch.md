@@ -313,26 +313,80 @@ func mySqrt(x int) int {
 
 * 二分搜索答案 mid
 * 看看有多少个数字， 记录为cnt
-*
+* 如果cnt >= k， 那这个是一个可能的答案，记录一下并且指针往左移动。否则，指针往右移动
 
 
 
 ### Java 
 
 ```java
-
+class Solution {
+    public int findKthNumber(int n, int m, int k) {
+        int l = 1, r = n * m;
+        int res = -1;
+        while(l <= r) {
+            int mid = l + (r - l) / 2;
+            int cnt = 0;
+            for(int i = 1; i <= n; i++) {
+                cnt += Math.min(mid / i, m);
+            }
+            if(cnt >= k) {
+                res = mid;
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### C++ 
 
 ```cpp
-
+class Solution {
+public:
+    int findKthNumber(int n, int m, int k) {
+        int l = 1, r = n * m;
+        int res = -1;
+        while(l <= r) {
+            int mid = l + (r - l) / 2;
+            int cnt = 0;
+            for(int i = 1; i <= n; i++) {
+                cnt += min(mid / i, m);
+            }
+            if(cnt >= k) {
+                res = mid;
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return res;
+    }
+};
 ```
 
 ### Python 
 
 ```python
-
+class Solution:
+    def findKthNumber(self, n: int, m: int, k: int) -> int:
+        res = 0
+        l = 1
+        r = n * m
+        while l <= r:
+            mid = l + (r - l) // 2
+            cnt = 0
+            for i in range(1, n + 1):
+                cnt += min(mid // i, m)
+            if cnt >= k:
+                res = mid
+                r = mid - 1
+            else:
+                l = mid + 1
+        return res
 ```
 
 ### Go 
@@ -368,7 +422,7 @@ func findKthNumber(n int, m int, k int) int {
 
 ### Complexity :
 
-* **Time** : 
-* **Space** : 
+* **Time** :  O(n log(n * m))
+* **Space** : O(1) 
 
 <br/><br/><br/>
