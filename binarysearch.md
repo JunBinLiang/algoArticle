@@ -311,7 +311,9 @@ func mySqrt(x int) int {
 
 ### Explanation :
 
-* 
+* 二分搜索答案 mid
+* 看看有多少个数字， 记录为cnt
+*
 
 
 
