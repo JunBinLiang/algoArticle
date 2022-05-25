@@ -7,6 +7,8 @@
  1. [First Bad Version](https://leetcode.com/problems/first-bad-version/) <br/>
  2. [Sqrt(x)](https://leetcode.com/problems/sqrtx/) <br/>
  3. [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) <br/> <br/><br/>
+
+
  1. [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/) <br/>
  2. [Kth Smallest Number in Multiplication Table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/) <br/>
  3. [Maximum White Tiles Covered by a Carpet](https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/) <br/>
