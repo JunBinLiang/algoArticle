@@ -44,7 +44,7 @@ call isBadVersion(5) -> ture
 
 ### Explanation :
 
-* 我们可以发现此题的规律是 **G G G B B B B B B B ......**
+* 我们可以发现此题的规律 **G G G B B B B B B B ......**
 * 使用二分法
 * **mid = l + (r - l) / 2** 如果 **isBadVersion(mid)** 是false，我们使指针向左移动，否则使其向右移动
 
@@ -147,6 +147,131 @@ func firstBadVersion(n int) int {
         }       
     }
     return res
+}
+```
+
+### Complexity :
+
+* **Time** : O (log(n)) 
+* **Space** : O(1) 
+
+<br/><br/><br/>
+
+
+
+
+
+
+
+
+
+ ###  LC69 Sqrt(x)
+
+ ### Statements :
+> Given a non-negative integer x, compute and return the square root of x.
+
+> Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned.
+
+> Note: You are not allowed to use any built-in exponent function or operator, such as pow(x, 0.5) or x ** 0.5.
+
+### Example :
+
+**Input** : x = 4
+
+**Output** : 2
+
+### **Constraints:**
+
+* `0 <= x <= 2^31 - 1`
+
+
+
+### Explanation :
+
+* 定义 f(mid) : 如果 mid * mid <= x, 返回true 
+* 我们可以发现此题的规律与上题一样 **G G G B B B B B B B ......**
+* 使用二分法
+* **mid = l + (r - l) / 2** 如果 **f(mid)** 是false，我们使指针向左移动，否则使其向右移动
+
+
+
+### Java 
+
+```java
+class Solution {
+    public int mySqrt(int x) {
+        long l = 0, r = x;
+        long res = -1;
+        while(l <= r) {
+            long mid = l + (r - l) / 2;
+            long sqrt = mid * mid;
+            if(sqrt <= x) {
+                res = mid;
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return (int)(res);
+    }
+}
+```
+
+### C++ 
+
+```cpp
+class Solution {
+public:
+    int mySqrt(int x) {
+        long long l = 0, r = x;
+        long long res = -1;
+        while(l <= r) {
+            long long mid = l + (r - l) / 2;
+            if(mid * mid <= x) {
+                res = mid;
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return (int)(res);
+    }
+};
+```
+
+### Python 
+
+```python
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        l = 0
+        r = x
+        res = 0
+        while l <= r:
+            mid = l + (r - l) // 2
+            if mid * mid <= x:
+                res = mid
+                l = mid + 1
+            else:
+                r = mid - 1
+        return res
+```
+
+### Go 
+
+```go
+func mySqrt(x int) int {
+    var l, r, res int64 = 0, int64(x), 0
+    for l <= r {
+        mid := l + (r - l) / 2
+        if mid * mid <= int64(x) {
+            res = mid
+            l = mid + 1
+        } else {
+            r = mid - 1
+        }
+    }
+    return int(res)
 }
 ```
 
