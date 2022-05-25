@@ -6,12 +6,10 @@
 ### 文章中的例题链接 :  
  1. [First Bad Version](https://leetcode.com/problems/first-bad-version/) <br/>
  2. [Sqrt(x)](https://leetcode.com/problems/sqrtx/) <br/>
- 3. [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) <br/> <br/><br/>
-
-
- 1. [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/) <br/>
- 2. [Kth Smallest Number in Multiplication Table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/) <br/>
- 3. [Maximum White Tiles Covered by a Carpet](https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/) <br/>
+ 3. [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) <br/> 
+ 4. [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/) <br/>
+ 5. [Kth Smallest Number in Multiplication Table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/) <br/>
+ 6. [Maximum White Tiles Covered by a Carpet](https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/) <br/>
 <br/><br/><br/>
 
 
@@ -281,5 +279,69 @@ func mySqrt(x int) int {
 
 * **Time** : O (log(n)) 
 * **Space** : O(1) 
+
+<br/><br/><br/>
+
+
+
+ ###  LC668 Kth Smallest Number in Multiplication Table
+
+ ### Statements :
+> Nearly everyone has used the Multiplication Table. The multiplication table of size m x n is an integer matrix mat where mat[i][j] == i * j (1-indexed).
+
+> Given three integers m, n, and k, return the kth smallest element in the m x n multiplication table.
+
+### Example :
+
+![c40573a80e33355d29df37eaec57c45](https://user-images.githubusercontent.com/45537132/170187718-10d57171-d2a9-41a3-8dbf-1ba2e6a4755b.png)
+
+
+**Input** : m = 3, n = 3, k = 5
+
+**Output** : 3
+
+**Explanation** : The 5th smallest number is 3.
+
+### **Constraints:**
+
+* `1 <= m, n <= 3 * 104`
+* `1 <= k <= m * n`
+
+<br/><br/>
+
+### Explanation :
+
+* 
+
+
+
+### Java 
+
+```java
+
+```
+
+### C++ 
+
+```cpp
+
+```
+
+### Python 
+
+```python
+
+```
+
+### Go 
+
+```go
+
+```
+
+### Complexity :
+
+* **Time** : 
+* **Space** : 
 
 <br/><br/><br/>
