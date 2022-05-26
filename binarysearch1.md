@@ -1,6 +1,6 @@
 
 
-# BinarySearch
+# BinarySearch I
 
 
 ### 文章中的例题链接 :  
@@ -424,3 +424,213 @@ func findKthNumber(n int, m int, k int) int {
 * **Space** : O(1) 
 
 <br/><br/><br/>
+
+ ###  LC2271 Maximum White Tiles Covered by a Carpet
+ 
+  ### Statements :
+> You are given a 2D integer array tiles where tiles[i] = [li, ri] represents that every tile j in the range li <= j <= ri is colored white.
+> 
+> You are also given an integer carpetLen, the length of a single carpet that can be placed anywhere.
+> 
+> Return the maximum number of white tiles that can be covered by the carpet.
+
+
+### Example :
+
+
+**Input** : tiles = [[1,5],[10,11],[12,18],[20,25],[30,32]], carpetLen = 10
+
+**Output** : 9
+
+**Explanation** : Place the carpet starting on tile 10. <br/>
+It covers 9 white tiles, so we return 9.<br/>
+Note that there may be other places where the carpet covers 9 white tiles.<br/>
+It can be shown that the carpet cannot cover more than 9 white tiles.<br/>
+
+<br/><br/>
+
+### Explanation :
+* 先对所有区间进行一个排序
+* 枚举每个点作为起始的点，看看他最远能够cover 到那个点 (使用二分)
+* 找到最远的点后，看看从起始点到最远点的实际距离 (去掉空的) 是多少 (这里可以使用前缀和速求)
+
+
+### Java 
+
+```java
+class Solution {
+    public int maximumWhiteTiles(int[][] a, int len) {
+        Arrays.sort(a, (x, y) -> {
+            return x[0] - y[0];
+        });
+        
+        int pre[] = new int[a.length];
+        int sum = 0, res = 0;
+        
+        for(int i = 0; i < a.length; i++) {
+            sum += (a[i][1] - a[i][0] + 1);
+            pre[i] = sum;
+        }
+        
+        for(int i = 0; i < a.length; i++) {
+            int l = i, r = a.length -1;
+            int pos = -1;
+            while(l <= r) {
+                int mid = l + (r - l) / 2;
+                if(a[mid][0] <= a[i][0] + len - 1) {
+                    pos = mid;
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            
+            if(a[i][0] + len - 1 >= a[pos][1]) {
+                res = Math.max(res, get(pre, i, pos)); 
+            } else {
+                res = Math.max(res, get(pre, i, pos - 1) + (a[i][0] + len - 1 - a[pos][0] + 1)); 
+            }
+        }
+        
+        return res;
+    }
+    
+    public int get(int a[], int l, int r) {
+        if(l > r) return 0;
+        if(l == 0) return a[r];
+        return a[r] - a[l - 1];
+    }
+}
+```
+
+### C++ 
+
+```cpp
+bool COMP(const vector<int>& a, const vector<int>& b) {
+    return a[0] < b[0];
+}
+
+int get(vector<int>& a, int l, int r) {
+    if(l > r) return 0;
+    if(l == 0) return a[r];
+    return a[r] - a[l - 1];
+}
+
+class Solution {
+public:
+    int maximumWhiteTiles(vector<vector<int>>& a, int len) {
+        sort(a.begin(), a.end(), COMP);
+        vector<int> pre;
+        int sum = 0, res = 0;
+        for(int i = 0; i < a.size(); i++) {
+            sum += (a[i][1] - a[i][0] + 1);
+            pre.push_back(sum);
+        }
+        
+        
+        for(int i = 0; i < a.size(); i++) {
+            int l = i, r = a.size() -1;
+            int pos = -1;
+            while(l <= r) {
+                int mid = l + (r - l) / 2;
+                if(a[mid][0] <= a[i][0] + len - 1) {
+                    pos = mid;
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            
+            if(a[i][0] + len - 1 >= a[pos][1]) {
+                res = max(res, get(pre, i, pos)); 
+            } else {
+                res = max(res, get(pre, i, pos - 1) + (a[i][0] + len - 1 - a[pos][0] + 1)); 
+            }
+        }
+        return res;
+    }
+};
+```
+
+### Python 
+
+```python
+class Solution:
+    def maximumWhiteTiles(self, a: List[List[int]], le: int) -> int:
+        a = sorted(a, key = itemgetter(0))
+        sum1 = 0
+        res = 0
+        pre = [0] * len(a)
+        for i in range(len(a)):
+            sum1 += (a[i][1] - a[i][0] + 1)
+            pre[i] = sum1
+            
+        for i in range(len(a)):
+            l = i
+            r = len(a) - 1
+            pos = -1
+            while l <= r:
+                mid = l + (r - l) // 2
+                if a[mid][0] <= a[i][0] + le - 1:
+                    pos = mid;
+                    l = mid + 1;
+                else:
+                    r = mid - 1
+                    
+            if a[i][0] + le - 1 >= a[pos][1]:
+                res = max(res, self.cal(pre, i, pos))
+            else:
+                res = max(res, (a[i][0] + le - 1 - a[pos][0] + 1) + self.cal(pre, i, pos - 1))
+                
+        return res
+    
+        
+    def cal(self, a, l, r) -> int:
+        if l > r:
+            return 0
+        if l == 0:
+            return a[r]
+        return a[r] - a[l - 1]
+```
+
+### Go (双指针写法)
+
+```go
+func max(a int, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+
+func maximumWhiteTiles(a [][]int, l int) int {
+    sort.SliceStable(a, func(i, j int) bool {
+        return a[i][0] < a[j][0]
+    })
+    
+    res := 0
+    var sum, j int = 0, 0
+    for i := 0; i < len(a); i++ {
+        to := a[i][0] + l - 1
+        for j < len(a) && to >= a[j][0] {
+            sum += (a[j][1] - a[j][0] + 1)
+            j++
+        }
+        if to < a[j - 1][1] {
+            res = max(res, sum - (a[j - 1][1] - a[j - 1][0] + 1) + (to - a[j - 1][0] + 1))
+        } else {
+            res = max(res, sum)
+        }
+        sum -= (a[i][1] - a[i][0] + 1)
+    }
+    return res
+}
+```
+
+### Complexity :
+
+* **Time** :  O(n log(n))
+* **Space** : O(n) 
+
+<br/><br/><br/>
+
