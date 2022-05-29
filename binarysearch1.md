@@ -463,7 +463,6 @@ class Solution {
         Arrays.sort(a, (x, y) -> {
             return x[0] - y[0];
         });
-        
         int pre[] = new int[a.length];
         int sum = 0, res = 0;
         
@@ -471,13 +470,16 @@ class Solution {
             sum += (a[i][1] - a[i][0] + 1);
             pre[i] = sum;
         }
-        
+
         for(int i = 0; i < a.length; i++) {
             int l = i, r = a.length -1;
             int pos = -1;
+            int to = a[i][0] + len - 1;
+            
+            
             while(l <= r) {
                 int mid = l + (r - l) / 2;
-                if(a[mid][0] <= a[i][0] + len - 1) {
+                if(a[mid][0] <= to) {
                     pos = mid;
                     l = mid + 1;
                 } else {
@@ -485,22 +487,26 @@ class Solution {
                 }
             }
             
-            if(a[i][0] + len - 1 >= a[pos][1]) {
-                res = Math.max(res, get(pre, i, pos)); 
+            //[i : pos]
+            sum = get(pre, i, pos - 1);
+            if(to <= a[pos][1]) {
+                res = Math.max(res, (to - a[pos][0] + 1) + sum);
             } else {
-                res = Math.max(res, get(pre, i, pos - 1) + (a[i][0] + len - 1 - a[pos][0] + 1)); 
+                res = Math.max(res, sum + (a[pos][1] - a[pos][0] + 1));
             }
         }
-        
         return res;
     }
     
-    public int get(int a[], int l, int r) {
+    public int get(int pre[], int l, int r) {
         if(l > r) return 0;
-        if(l == 0) return a[r];
-        return a[r] - a[l - 1];
+        if(l == 0) return pre[r];
+        return pre[r] - pre[l - 1];
     }
 }
+
+
+
 ```
 
 ### C++ 
